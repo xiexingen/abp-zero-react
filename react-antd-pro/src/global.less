@@ -1,0 +1,145 @@
+@import '~themes/index.less';
+
+html,
+body,
+#root {
+  height: 100%;
+
+  .w-full {
+    width: 100%;
+  }
+
+  .ant-pro-global-header-layout-mix {
+    background-color: @white;
+  }
+
+  .ant-pro-global-header-layout-mix .anticon {
+    color: @black;
+  }
+  // 覆盖pro-layout的内容区域样式
+  .ant-pro-page-container-children-content {
+    margin: 8px;
+    background: #fff;
+    .page-body {
+      .ant-card-body {
+        padding: 8px;
+      }
+    }
+  }
+}
+
+:fullscreen {
+  .ant-form {
+    padding-top: 4px;
+  }
+}
+
+:not(:root):fullscreen::backdrop {
+  background: white;
+}
+
+/******************************************************** scroll bar 样式 start ********************************************************/
+
+// 滚动条 start
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+}
+
+// 定义滚动条轨道 内阴影+圆角
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+}
+
+//定义滑块 内阴影+圆角
+::-webkit-scrollbar-thumb {
+  background-color: hsla(0, 0%, 55.3%, 0.3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsla(0, 0%, 55.3%, 0.9);
+}
+
+/******************************************************** scroll bar 样式 end ********************************************************/
+
+// 进入 退出 动画
+:global {
+  // .ant-layout.ant-layout-has-sider {
+  //   > .ant-layout {
+  //     overflow-x: inherit;
+  //   }
+  // }
+
+  .page-slider-enter,
+  .page-slider-appear {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  .page-slider-enter-active,
+  .page-slider-appear-active {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 350ms ease-out;
+  }
+
+  .page-slider-exit {
+    opacity: 1;
+    transition: all 250ms ease-in;
+  }
+
+  .page-slider-exit-active {
+    opacity: 0;
+  }
+
+  // 覆盖pro-layout的logo
+  .ant-layout-sider-children > .ant-pro-sider-logo {
+    padding: 8px;
+  }
+
+  .ant-pro-sider.ant-layout-sider-collapsed > .ant-layout-sider-children > .ant-pro-sider-logo {
+    padding: 6px;
+  }
+
+  // .ant-layout > .ant-pro-basicLayout-content-disable-margin {
+  //   min-width: calc(100vh - 62px);
+  //   margin: 0;
+  //   padding: 8px 8px 0 8px;
+  //   background: #fff;
+  //   border: 5px solid rgb(240, 242, 245);
+  // }
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+@media (max-width: @screen-xs) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// 兼容IE11
+@media screen and(-ms-high-contrast: active), (-ms-high-contrast: none) {
+  body .ant-design-pro > .ant-layout {
+    min-height: 100vh;
+  }
+}
